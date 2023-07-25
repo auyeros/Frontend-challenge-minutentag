@@ -41,7 +41,7 @@ function Product(props) {
 	return (
 		<li>
 			<span>
-				{/* Product name */} - votes: {/* Number of votes*/}
+				{name} - votes: {votes}
 			</span>
 			<button onClick={handlePlus}>+</button>
 			<button onClick={handleMinus}>-</button>
@@ -49,10 +49,22 @@ function Product(props) {
 	);
 }
 
+
 export function Grocery({ products }) {
+	const [productList, setProductList] = useState(products)
+
+	function handleVote(name, newVotes) {
+		// finds the product by name and updates its votes
+		const updatedProducts = productList.map((product) =>
+			product.name === name ? { ...product, votes: newVotes } : product
+		);
+		setProductList(updatedProducts);
+	}
 	return (
 		<ul>
-			{/* Render an array of products, which should call onVote when + or - is clicked */}
+			{productList.map((product) => (
+				<Product key={product.name} {...product} onVote={handleVote} />
+			))}
 		</ul>
 	);
 }
