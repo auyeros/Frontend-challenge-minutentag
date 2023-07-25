@@ -9,18 +9,47 @@
 
 import React, { useEffect, useRef } from "react";
 
-function Input(props) {
-	// Implement
-}
-
-const TextInput = React.forwardRef((props, ref) => {
-  // Implement
+const Input = React.forwardRef((props, ref) => {
+	return <input ref={ref} {...props} />;
 });
+
+export const TextInput = React.forwardRef((props, ref) => {
+	return <Input ref={ref} {...props} />;
+});
+
+// Custom hook to handle ref forwarding
+const useForwardedRef = (ref) => {
+	const innerRef = useRef(null);
+
+	useEffect(() => {
+		if (ref) {
+			if (typeof ref === "function") {
+				ref(innerRef.current);
+			} else {
+				ref.current = innerRef.current;
+			}
+		}
+	}, [ref]);
+
+	return innerRef;
+};
 
 // Implement:
 // When the focused prop is changed from false to true,
 // and the input is not focused, it should receive focus.
 // If focused prop is true, the input should receive the focus.
-export function FocusableInput({ focusable = false }) {
-	// Implement
-}
+export const FocusableInput = React.forwardRef(({ focused }, ref) => {
+	const inputRef = useForwardedRef(ref);
+	// Use useEffect to handle focus on mounting and when focused prop changes
+	useEffect(() => {
+		// Function to handle focus logic
+		const handleFocus = () => {
+			if (focused && inputRef.current) {
+				inputRef.current.focus();
+			}
+		};
+
+		handleFocus();
+	}, [focused, inputRef]);
+	return <TextInput ref={inputRef} />;
+});
