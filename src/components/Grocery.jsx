@@ -21,14 +21,21 @@
  *     </li>
  *   </ul>
  */
+import React, { useState } from "react";
+
 
 function Product(props) {
+	const { name, votes, onVote } = props;
 	function handlePlus() {
 		// logic to vote a product
+		// calls the onVote function with the votes
+		onVote(name, votes + 1);
 	}
 
 	function handleMinus() {
 		// logic to unvote a product
+		// calls the onVote function with the votes
+		onVote(name, votes - 1);
 	}
 
 	return (
