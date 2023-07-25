@@ -7,16 +7,26 @@
  * - When the button is clicked, the image that is in the same div as the button should be removed from the gallery.
  */
 
+import React, { useState } from "react";
+
 function Image({ src, onRemove }) {
 	return (
 		<div class="image">
-			<img />
-			<button class="remove">X</button>
+			<img src={src} alt="Gallery" />
+			<button class="remove" onClick={onRemove}>X</button>
 		</div>
 	);
 }
 
 export function ImageGallery({ links }) {
+	//preventing error if prop "links" is not defined
+	const [galleryLinks, setGalleryLinks] = useState(links || []);
+
+	const handleRemoveImage = (index) => {
+		const updatedLinks = galleryLinks.filter((link, i) => i !== index);
+		setGalleryLinks(updatedLinks);
+	};
+
 	return (
 		<div>
 			{/* Implement here the Image Gallery using <Image /> component */}
