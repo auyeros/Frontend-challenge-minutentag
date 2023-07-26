@@ -11,9 +11,9 @@ import React, { useState } from "react";
 
 function Image({ src, onRemove }) {
 	return (
-		<div class="image">
-			<button class="remove" onClick={onRemove}>X</button>
+		<div className="image">
 			<img src={src} alt="Gallery" />
+			<button className="remove" onClick={onRemove}>X</button>
 		</div>
 	);
 }
@@ -28,7 +28,7 @@ export function ImageGallery({ links }) {
 	};
 
 	return (
-		<div>
+		<div className="gallery-container">
 			{galleryLinks.map((link, index) => (
 				<Image key={index} src={link} onRemove={() => handleRemoveImage(index)} />
 			))}

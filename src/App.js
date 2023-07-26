@@ -6,6 +6,7 @@ import { PlayerStatus } from "./components/PlayerStatus";
 import { TeamsList } from "./components/TeamsList";
 import { Grocery } from "./components/Grocery";
 import { ListItemsForNavigation } from "./components/ListItemsForNavigation";
+import { Rating } from "./components/Rating"
 import './App.css';
 
 export default function App() {
@@ -39,6 +40,9 @@ export default function App() {
       <br />
       <h3>'TeamsList' test</h3>
       <TeamsList />
+      <br />
+      <h3>'Rating' test</h3>
+      < Rating />
     </div>
   );
 }
