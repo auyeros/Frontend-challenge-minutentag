@@ -23,7 +23,14 @@
  *  <span>*</span>
  * </div>
  */
+import React, { useState } from "react";
 
 export function Rating() {
+	const [activeStars, setActiveStars] = useState(0);
+
+	const handleStarClick = (clickedStar) => {
+		setActiveStars(clickedStar);
+	};
+
 	return null;
 }
