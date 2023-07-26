@@ -37,7 +37,18 @@
     }
 }
 
-.active {
+#rating {
+    display: inline-block;
+    font-size: 24px;
+}
+
+#rating span {
+    cursor: pointer;
+    margin-right: 10px; /* spacing between stars */
+    transition: transform 0.2s, font-size 0.2s; /* transition for scaling */
+}
+
+#rating span.active {
     color: red; /* change the color of the active star color */
 }
 
