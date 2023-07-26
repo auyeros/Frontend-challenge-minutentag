@@ -35,7 +35,10 @@ function Product(props) {
 	function handleMinus() {
 		// logic to unvote a product
 		// calls the onVote function with the votes
-		onVote(name, votes - 1);
+		// prevent negative votes once votes reach 0
+		if (votes > 0) {
+			onVote(name, votes - 1);
+		}
 	}
 
 	return (
