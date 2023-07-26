@@ -98,7 +98,13 @@ export function TeamsList() {
 			<button onClick={orderTeamByScoreHighestToLowest}>Highest to Lowest</button>
 			<button onClick={orderTeamByScoreLowestToHighest}>Lowest to Highest</button>
 			<button onClick={teamsWithMoreThanThreePlayers}>Teams with at least 3 players</button>
-			<ul className="teams">{/** Render the list of teams */}</ul>
+			<ul className="teams">
+				{teams.map((team, index) => (
+					<li key={index}>
+						{`${team.name} / Players: ${team.players.length} / Total Score: ${team.games.reduce((acc, game) => acc + game.score, 0)}`}
+					</li>
+				))}
+			</ul>
 		</div>
 
 	);
