@@ -24,7 +24,10 @@ export function PlayerStatus() {
 	const [counter, setCounter] = useState(1);
 	// Toggle between the two status values - 'Away' and 'Online'
 	function onToggleStatus() {
-		// Write your code here
+		// updates the state of "status"
+		setStatus((prevStatus) => (prevStatus === "Online" ? "Away" : "Online"));
+		// increment the counter here immediately to ensure that they are synchronized (prevents counter +2)
+		setCounter((prevCounter) => prevCounter + 1);
 	}
 
 	// Implement effect hook below.
