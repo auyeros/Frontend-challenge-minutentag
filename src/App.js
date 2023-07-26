@@ -5,13 +5,13 @@ import { ImageGallery } from "./components/ImageGallery";
 import { PlayerStatus } from "./components/PlayerStatus";
 import { TeamsList } from "./components/TeamsList";
 import { Grocery } from "./components/Grocery";
-
+import { ListItemsForNavigation } from "./components/ListItemsForNavigation";
 import './App.css';
 
 export default function App() {
 
   const imageLinks = [
-    "/public/images/BLACK.png", "/public/images/BLUE.png", "/public/images/GREEN.png", "/public/images/RED.png", "/public/images/WHITE.png"
+    "/images/BLACK.png", "/images/BLUE.png", "/images/GREEN.png", "/images/RED.png", "/images/WHITE.png"
   ];
   const groceryProds = [
     { name: "Oranges", votes: 0 }, { name: "Bananas", votes: 0 }, { name: "Pears", votes: 1 }, { name: "Kiwi", votes: 0 }
@@ -21,6 +21,9 @@ export default function App() {
       {/* Render here each component from the "components" directory */}
       <h3>'Message' test</h3>
       <Message />
+      <br />
+      <h3>'ListItems' test</h3>
+      <ListItemsForNavigation />
       <br />
       <h3>'FocusableInput' test</h3>
       <FocusableInput focused={true} />

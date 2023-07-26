@@ -15,7 +15,7 @@ import { useEffect, useRef, useState } from "react";
 // Simulating a list of items to render.
 // This can be passed through props as well. The constant is declared here for convenience
 const itemsList = Array(10).fill({
-	/** Add the properties you consider, there are no specific requirements related to what you have to render. Be creative :) */
+	text: "Item"
 });
 
 export function ListItemsForNavigation(props) {
@@ -46,7 +46,7 @@ export function ListItemsForNavigation(props) {
 					ref={index === selectedIndex ? activeItemRef : null}
 					tabIndex={0}
 				>
-					{/** Render the item properties as needed */}
+					{item.text} {index === selectedIndex ? "(Selected)" : ""}
 				</li>
 			))}
 		</ul>
