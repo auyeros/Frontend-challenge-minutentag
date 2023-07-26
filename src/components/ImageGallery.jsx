@@ -29,7 +29,9 @@ export function ImageGallery({ links }) {
 
 	return (
 		<div>
-			{/* Implement here the Image Gallery using <Image /> component */}
+			{galleryLinks.map((link, index) => (
+				<Image key={index} src={link} onRemove={() => handleRemoveImage(index)} />
+			))}
 		</div>
 	);
 }
