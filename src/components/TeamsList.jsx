@@ -70,18 +70,27 @@ export function TeamsList() {
 
 	// Order teams by score (highest to lowest)
 	function orderTeamByScoreHighestToLowest() {
-		// Write your code here
+		const sortedTeams = [...teams];
+		sortedTeams.sort((a, b) => b.games.reduce((acc, game) => acc + game.score, 0) - a.games.reduce((acc, game) => acc + game.score, 0));
+		setTeams(sortedTeams);
 	}
 
 	// Order teams by score (lowest to highest)
 	function orderTeamByScoreLowestToHighest() {
-		// Write your code here
+		const sortedTeams = [...teams];
+		sortedTeams.sort((a, b) => a.games.reduce((acc, game) => acc + game.score, 0) - b.games.reduce((acc, game) => acc + game.score, 0));
+		setTeams(sortedTeams);
 	}
 
 	// Filtering teams that with at least 3 players
 	function teamsWithMoreThanThreePlayers() {
-		// Write your code here
+		function teamsWithMoreThanThreePlayers() {
+			const filteredTeams = teams.filter((team) => team.players.length >= 3);
+			setTeams(filteredTeams);
+		}
 	}
+
+
 
 	return (
 		<div>
@@ -93,5 +102,6 @@ export function TeamsList() {
 
 			<ul className="teams">{/** Render the list of teams */}</ul>
 		</div>
+
 	);
 }
