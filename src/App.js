@@ -4,10 +4,18 @@ import { FocusableInput } from "./components/FocusableInput";
 import { ImageGallery } from "./components/ImageGallery";
 import { PlayerStatus } from "./components/PlayerStatus";
 import { TeamsList } from "./components/TeamsList";
+import { Grocery } from "./components/Grocery";
 
 import './App.css';
 
 export default function App() {
+
+  const imageLinks = [
+    "/public/images/BLACK.png", "/public/images/BLUE.png", "/public/images/GREEN.png", "/public/images/RED.png", "/public/images/WHITE.png"
+  ];
+  const groceryProds = [
+    [{ name: "Oranges", votes: 0 }, { name: "Bananas", votes: 0 }, { name: "Pears", votes: 1 }, { name: "Kiwe", votes: 0 }]
+  ]
   return (
     <div className="App">
       {/* Render here each component from the "components" directory */}
@@ -15,10 +23,13 @@ export default function App() {
       <Message />
       <br />
       <h3>'FocusableInput' test</h3>
-      <FocusableInput />
+      <FocusableInput focused={true} />
+      <br />
+      <h3>'Grocery' test</h3>
+      <Grocery products={groceryProds} />
       <br />
       <h3>'ImageGallery' test</h3>
-      <ImageGallery />
+      <ImageGallery links={imageLinks} />
       <br />
       <h3>'PlayerStatus' test</h3>
       <PlayerStatus />
