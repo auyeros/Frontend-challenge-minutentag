@@ -32,5 +32,17 @@ export function Rating() {
 		setActiveStars(clickedStar);
 	};
 
-	return null;
+	return (
+		<div id="rating">
+			{Array.from({ length: 5 }, (_, index) => (
+				<span
+					key={index}
+					className={index < activeStars ? "active" : ""}
+					onClick={() => handleStarClick(index + 1)}
+				>
+					*
+				</span>
+			))}
+		</div>
+	);
 }
