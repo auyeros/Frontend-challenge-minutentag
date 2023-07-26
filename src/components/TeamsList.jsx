@@ -84,11 +84,10 @@ export function TeamsList() {
 
 	// Filtering teams that with at least 3 players
 	function teamsWithMoreThanThreePlayers() {
-		function teamsWithMoreThanThreePlayers() {
-			const filteredTeams = teams.filter((team) => team.players.length >= 3);
-			setTeams(filteredTeams);
-		}
+		const filteredTeams = teams.filter((team) => team.players.length >= 3);
+		setTeams(filteredTeams);
 	}
+
 
 
 
