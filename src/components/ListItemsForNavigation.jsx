@@ -28,6 +28,10 @@ export function ListItemsForNavigation(props) {
 	}, [selectedIndex]);
 
 	function handleKeyDown(event) {
+		// prevent scrolling when arrow keys are pressed
+		if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
+			event.preventDefault();
+		}
 		// Add the proper logic to calculate the index that correspond to the item that should be focused.
 		if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
 			setSelectedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
