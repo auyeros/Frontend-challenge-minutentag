@@ -10,6 +10,14 @@
  * - Finish the Message component by implementing this logic.
  */
 
+import React, { useState } from "react";
+
+const [isParagraphVisible, setIsParagraphVisible] = useState(false);
+
+const handleClick = () => {
+	setIsParagraphVisible((prevIsParagraphVisible) => !prevIsParagraphVisible);
+};
+
 export function Message() {
 	return (
 		<>
