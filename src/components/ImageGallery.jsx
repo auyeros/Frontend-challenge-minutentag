@@ -12,8 +12,8 @@ import React, { useState } from "react";
 function Image({ src, onRemove }) {
 	return (
 		<div class="image">
-			<img src={src} alt="Gallery" />
 			<button class="remove" onClick={onRemove}>X</button>
+			<img src={src} alt="Gallery" />
 		</div>
 	);
 }
