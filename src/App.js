@@ -14,7 +14,7 @@ export default function App() {
     "/public/images/BLACK.png", "/public/images/BLUE.png", "/public/images/GREEN.png", "/public/images/RED.png", "/public/images/WHITE.png"
   ];
   const groceryProds = [
-    [{ name: "Oranges", votes: 0 }, { name: "Bananas", votes: 0 }, { name: "Pears", votes: 1 }, { name: "Kiwe", votes: 0 }]
+    { name: "Oranges", votes: 0 }, { name: "Bananas", votes: 0 }, { name: "Pears", votes: 1 }, { name: "Kiwi", votes: 0 }
   ]
   return (
     <div className="App">
