@@ -95,11 +95,9 @@ export function TeamsList() {
 	return (
 		<div>
 			<button onClick={() => setTeams(TEAMS)}>Initial list</button>
-
-			<button>Highest to Lowest</button>
-			<button>Lowest to Highest</button>
-			<button>Teams with at least 3 players</button>
-
+			<button onClick={orderTeamByScoreHighestToLowest}>Highest to Lowest</button>
+			<button onClick={orderTeamByScoreLowestToHighest}>Lowest to Highest</button>
+			<button onClick={teamsWithMoreThanThreePlayers}>Teams with at least 3 players</button>
 			<ul className="teams">{/** Render the list of teams */}</ul>
 		</div>
 
